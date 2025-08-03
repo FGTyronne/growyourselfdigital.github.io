@@ -21,7 +21,8 @@ html, body {
 .hero {
     /* Use a hero background image with a gradient overlay for visual impact */
     position: relative;
-    background: url('assets/hero-bg.png') center/cover no-repeat;
+    /* The hero background image is stored in the root of the site since GitHub Pages doesn't support nested asset folders. */
+    background: url('hero-bg.png') center/cover no-repeat;
     color: #fff;
     text-align: center;
     padding: 100px 0 120px;
