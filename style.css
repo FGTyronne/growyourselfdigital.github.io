@@ -4,8 +4,9 @@ html, body {
     padding: 0;
     font-family: 'Inter', sans-serif;
     color: #333;
-    background-color: #fafafa;
+    background-color: #f5f7fb;
     line-height: 1.6;
+    scroll-behavior: smooth;
 }
 
 /* Container */
@@ -18,10 +19,30 @@ html, body {
 
 /* Hero section */
 .hero {
-    background: linear-gradient(135deg, #2d63f1 0%, #4ba4f3 100%);
+    /* Use a hero background image with a gradient overlay for visual impact */
+    position: relative;
+    background: url('assets/hero-bg.png') center/cover no-repeat;
     color: #fff;
     text-align: center;
-    padding: 80px 0 100px;
+    padding: 100px 0 120px;
+    overflow: hidden;
+}
+
+/* Overlay on hero to ensure text remains readable */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 0;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
 }
 
 .hero .title {
@@ -47,8 +68,8 @@ html, body {
 }
 
 .btn-primary {
-    background-color: #fff;
-    color: #2d63f1;
+    background-color: #ffcf4d;
+    color: #1a2147;
 }
 
 .btn-primary:hover {
@@ -56,12 +77,12 @@ html, body {
 }
 
 .btn-secondary {
-    background-color: #2d63f1;
+    background-color: #1a2147;
     color: #fff;
 }
 
 .btn-secondary:hover {
-    background-color: #1e4bc8;
+    background-color: #3c4172;
 }
 
 /* Sections */
@@ -74,7 +95,7 @@ html, body {
     margin-bottom: 20px;
     text-align: center;
     font-weight: 600;
-    color: #2d63f1;
+    color: #1a2147;
 }
 
 .section p {
@@ -91,25 +112,43 @@ html, body {
 }
 
 .product {
-    background-color: #fff;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    border-radius: 6px;
-    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    border-radius: 8px;
+    padding: 25px;
     flex: 1 1 calc(33.333% - 20px);
-    min-width: 250px;
+    min-width: 260px;
     max-width: 100%;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
 }
 
 .product h3 {
     font-size: 1.4rem;
     margin-top: 0;
-    color: #2d63f1;
+    color: #1a2147;
 }
 
 .product p {
-    margin-bottom: 15px;
-    font-size: 0.95rem;
+    margin-bottom: 20px;
+    font-size: 1rem;
     color: #555;
+}
+
+/* Product images */
+.product-img {
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    object-fit: cover;
+    height: 160px;
 }
 
 /* Newsletter section */
